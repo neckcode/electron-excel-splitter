@@ -1,0 +1,27 @@
+version: 1.0.{build}
+image: Visual Studio 2022
+
+# Окружение: установка Node.js
+environment:
+  nodejs_version: "18"
+
+# Клонируем git-проект как есть
+clone_folder: C:\projects\excel-electron-app
+
+# Установка Node.js
+install:
+  - ps: Install-Product node $env:nodejs_version
+  - npm install
+
+# Сборка проекта
+build_script:
+  - npm run build
+
+# Указываем, что собирать и сохранять
+artifacts:
+  - path: dist\**\*
+    name: excel-app-build
+
+# Сохраняем кэш node_modules между сборками (ускорение)
+cache:
+  - node_modules
