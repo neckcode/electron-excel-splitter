@@ -8,14 +8,21 @@
     "build": "npx electron-builder"
   },
   "build": {
-    "appId": "com.yourcompany.excelapp",
+    "appId": "com.example.excelsplitter",
     "productName": "Excel Filter Tool",
     "directories": {
       "output": "dist"
     },
+    "files": [
+      "main.js",
+      "package.json",
+      "renderer/**/*"
+    ],
     "win": {
-      "target": "nsis",
-      "icon": "icon.ico"
+      "target": [
+        "nsis",
+        "zip"
+      ]
     }
   },
   "dependencies": {

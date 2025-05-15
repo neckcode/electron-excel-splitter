@@ -19,4 +19,5 @@ artifacts:
     name: installer
   - path: dist\*.zip
     name: portable
-  - path: dist\**\*  # на случай, если exe лежит в подпапке
+  - path: dist\win-unpacked\**\*
+    name: unpacked
