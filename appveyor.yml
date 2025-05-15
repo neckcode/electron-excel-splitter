@@ -9,8 +9,10 @@ clone_folder: C:\projects\excel-electron-app
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
-  - ps: New-Item -ItemType Directory -Force -Path "$env:APPDATA\npm"  # ✅ фиксим ENOENT
+  - ps: New-Item -ItemType Directory -Force -Path "$env:APPDATA\npm"
   - npm run build
+
+build: off  # ✅ Отключает MSBuild шаг
 
 artifacts:
   - path: dist\**\*
