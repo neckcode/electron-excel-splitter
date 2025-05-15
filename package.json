@@ -4,7 +4,7 @@
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder"
+    "build": "npx electron-builder"
   },
   "build": {
     "appId": "com.yourcompany.excelapp",
