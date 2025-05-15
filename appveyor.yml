@@ -12,11 +12,11 @@ install:
   - ps: New-Item -ItemType Directory -Force -Path "$env:APPDATA\npm"
   - npm run build
 
-build: off  # ✅ Отключает MSBuild шаг
+build: off  # ❗ отключаем msbuild, т.к. у нас не C++/C#
 
 artifacts:
-  - path: dist\**\*
-    name: excel-app-build
-
-cache:
-  - node_modules
+  - path: dist\*.exe
+    name: installer
+  - path: dist\*.zip
+    name: portable
+  - path: dist\**\*  # на случай, если exe лежит в подпапке
